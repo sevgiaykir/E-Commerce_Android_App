@@ -1,7 +1,8 @@
-package com.sevgiaykir.e_commerceandroidapp.Entity
+package com.sevgiaykir.e_commerceandroidapp.entity
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Users (@SerializedName("id")
                   @Expose
@@ -20,5 +21,5 @@ data class Users (@SerializedName("id")
                   var ad_soyad:String,
                   @SerializedName("telefon")
                   @Expose
-                  var telefon:String) {
+                  var telefon:String): Serializable {
 }

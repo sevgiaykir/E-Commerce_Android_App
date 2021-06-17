@@ -1,4 +1,4 @@
-package com.sevgiaykir.e_commerceandroidapp.Entity
+package com.sevgiaykir.e_commerceandroidapp.entity
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

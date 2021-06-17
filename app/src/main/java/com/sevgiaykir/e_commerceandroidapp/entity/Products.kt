@@ -1,7 +1,8 @@
-package com.sevgiaykir.e_commerceandroidapp.Entity
+package com.sevgiaykir.e_commerceandroidapp.entity
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Products(@SerializedName("id")
                     @Expose
@@ -26,5 +27,5 @@ data class Products(@SerializedName("id")
                     var sepet_durum:Boolean,
                     @SerializedName("urun_indirimli_mi")
                     @Expose
-                    var urun_indirimli_mi:Boolean) {
+                    var urun_indirimli_mi:Boolean):Serializable {
 }

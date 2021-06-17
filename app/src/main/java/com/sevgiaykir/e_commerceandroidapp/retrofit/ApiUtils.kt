@@ -1,4 +1,4 @@
-package com.sevgiaykir.e_commerceandroidapp.Retrofit
+package com.sevgiaykir.e_commerceandroidapp.retrofit
 
 class ApiUtils {
     companion object{

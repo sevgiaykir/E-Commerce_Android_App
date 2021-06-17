@@ -1,7 +1,7 @@
-package com.sevgiaykir.e_commerceandroidapp.Retrofit
+package com.sevgiaykir.e_commerceandroidapp.retrofit
 
-import com.sevgiaykir.e_commerceandroidapp.Entity.CRUDResponse
-import com.sevgiaykir.e_commerceandroidapp.Entity.UsersResponse
+import com.sevgiaykir.e_commerceandroidapp.entity.CRUDResponse
+import com.sevgiaykir.e_commerceandroidapp.entity.UsersResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded

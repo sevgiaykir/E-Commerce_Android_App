@@ -3,31 +3,39 @@ package com.sevgiaykir.e_commerceandroidapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.sevgiaykir.e_commerceandroidapp.Entity.CRUDResponse
-import com.sevgiaykir.e_commerceandroidapp.Entity.ProductsResponse
-import com.sevgiaykir.e_commerceandroidapp.Entity.UsersResponse
-import com.sevgiaykir.e_commerceandroidapp.Retrofit.ApiUtils
-import com.sevgiaykir.e_commerceandroidapp.Retrofit.ProductsDAOInterface
-import com.sevgiaykir.e_commerceandroidapp.Retrofit.UsersDAOInterface
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import com.sevgiaykir.e_commerceandroidapp.entity.ProductsResponse
+import com.sevgiaykir.e_commerceandroidapp.retrofit.ApiUtils
+import com.sevgiaykir.e_commerceandroidapp.retrofit.ProductsDAOInterface
+import com.sevgiaykir.e_commerceandroidapp.retrofit.UsersDAOInterface
+import com.sevgiaykir.e_commerceandroidapp.databinding.ActivityLoginRegisterBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+class LoginRegisterActivity : AppCompatActivity() {
+
+    private lateinit var design:ActivityLoginRegisterBinding
 
     private lateinit var pdaoi:ProductsDAOInterface
     private lateinit var udaoi:UsersDAOInterface
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        design= DataBindingUtil.setContentView(this,R.layout.activity_login_register)
+
+
+        val loginNavHostFragment=supportFragmentManager.findFragmentById(R.id.login_nav_host_fragment) as NavHostFragment
+        NavigationUI.setupWithNavController(design.loginTopNav,loginNavHostFragment.navController)
 
         pdaoi=ApiUtils.getProductsDaoInterface()
         udaoi=ApiUtils.getUsersDaoInterface()
 
         //searchProd()
         //insertUser()
-        searchUser()
+        //searchUser()
     }
 
     fun searchProd(){
@@ -72,46 +80,5 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }  */
-
-    fun insertUser(){
-        udaoi.signUp("sevgiaykir@gmail.com","sevgi999","Sevgi Aykır","5077777777").enqueue(object:Callback<CRUDResponse> {
-            override fun onResponse(call: Call<CRUDResponse>?, response: Response<CRUDResponse>) {
-                Log.e("Başarı",response.body().success.toString())
-                Log.e("Mesaj",response.body().message)
-            }
-
-            override fun onFailure(call: Call<CRUDResponse>?, t: Throwable?) {
-                TODO("Not yet implemented")
-            }
-        })
-    }
-
-    fun searchUser(){
-        udaoi.login("sevgiaykir@gmail.com","sevgi999").enqueue(object :Callback<UsersResponse> {
-            override fun onResponse(
-                call: Call<UsersResponse>?,
-                response: Response<UsersResponse>
-            ) {
-                val usersList = response.body().kullanicilar
-
-                for (p in usersList) {
-                    if (p.deger == 1) {
-                        Log.e("*****", "******")
-                        Log.e("1", p.ad_soyad)
-                        Log.e("2", p.mail_adres)
-                        Log.e("3", p.sifre)
-                        Log.e("4", p.telefon)
-                        Log.e("5", p.deger.toString())
-                    } else if (p.deger == 0) {
-                        Log.e("giriş", "yapılamadı")
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<UsersResponse>?, t: Throwable?) {
-                TODO("Not yet implemented")
-            }
-        })
-    }
 }
 

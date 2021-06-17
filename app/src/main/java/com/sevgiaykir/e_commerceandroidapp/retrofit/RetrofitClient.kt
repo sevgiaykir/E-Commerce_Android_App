@@ -1,4 +1,4 @@
-package com.sevgiaykir.e_commerceandroidapp.Retrofit
+package com.sevgiaykir.e_commerceandroidapp.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
