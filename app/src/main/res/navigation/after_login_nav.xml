@@ -3,19 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/after_login_nav"
-    app:startDestination="@id/homePageFragment2">
+    app:startDestination="@id/homePageFragment">
 
     <fragment
-        android:id="@+id/homePageFragment2"
+        android:id="@+id/homePageFragment"
         android:name="com.sevgiaykir.e_commerceandroidapp.fragment.HomePageFragment"
         android:label="HomePageFragment"
         tools:layout="@layout/fragment_home_page" >
         <action
             android:id="@+id/transitionHomePageToProductDetails"
             app:destination="@id/productDetailsFragment" />
-        <action
-            android:id="@+id/transitionHomePageToCartPage"
-            app:destination="@id/cartPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/cartPageFragment"
@@ -23,14 +20,10 @@
         android:label="fragment_cart_page"
         tools:layout="@layout/fragment_cart_page" />
     <fragment
-        android:id="@+id/campaignPageFragment2"
+        android:id="@+id/campaignPageFragment"
         android:name="com.sevgiaykir.e_commerceandroidapp.fragment.CampaignPageFragment"
         android:label="fragment_campaign_page"
-        tools:layout="@layout/fragment_campaign_page" >
-        <action
-            android:id="@+id/transitionCampaignPageToProductDetailsPage"
-            app:destination="@id/productDetailsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_campaign_page" />
     <fragment
         android:id="@+id/accountPageFragment"
         android:name="com.sevgiaykir.e_commerceandroidapp.fragment.AccountPageFragment"
@@ -40,9 +33,13 @@
         android:id="@+id/productDetailsFragment"
         android:name="com.sevgiaykir.e_commerceandroidapp.fragment.ProductDetailsPageFragment"
         android:label="fragment_product_details"
-        tools:layout="@layout/fragment_product_details_page" >
+        tools:layout="@layout/fragment_product_details_page"
+        app:startDestination="@id/transitionProductDetailsFragmentToHomePageFragment">
+        <argument
+            android:name="prodObject"
+            app:argType="com.sevgiaykir.e_commerceandroidapp.entity.Products" />
         <action
-            android:id="@+id/transitionProductDetailsPageToCartPage"
-            app:destination="@id/cartPageFragment" />
+            android:id="@+id/transitionProductDetailsFragmentToHomePageFragment"
+            app:destination="@id/homePageFragment" />
     </fragment>
 </navigation>

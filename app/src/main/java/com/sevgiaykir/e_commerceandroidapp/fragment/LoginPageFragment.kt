@@ -35,7 +35,6 @@ class LoginPageFragment : Fragment() {
         return design.root
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val temp: LoginPageViewModel by viewModels()

@@ -1,12 +1,8 @@
 package com.sevgiaykir.e_commerceandroidapp.viewmodel
 
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sevgiaykir.e_commerceandroidapp.entity.Users
 import com.sevgiaykir.e_commerceandroidapp.repo.UsersDAORepository
-import kotlin.coroutines.coroutineContext
 
 class LoginPageViewModel:ViewModel() {
 
@@ -14,13 +10,11 @@ class LoginPageViewModel:ViewModel() {
     var deger=MutableLiveData<Int>()
 
     init{
-        deger=udaor.degerGetir()
+        deger=udaor.bringValue()
     }
 
     fun login(email:String, password:String){
         udaor.searchUser(email,password)
-
-
 
     }
 }

@@ -14,19 +14,19 @@ interface ProductsDAOInterface {
 
     @POST("urun_ekle.php")
     @FormUrlEncoded
-    fun insertProduct(@Field("satici_adi")satici_adi:String,
-                      @Field("urun_adi")urun_adi:String,
-                      @Field("urun_fiyat")urun_fiyat:Double,
-                      @Field("urun_aciklama")urun_aciklama:String,
-                      @Field("urun_gorsel_url")urun_gorsel_url:String):Call<CRUDResponse>
+    fun insertProduct(@Field("satici_adi") satici_adi:String,
+                      @Field("urun_adi") urun_adi:String,
+                      @Field("urun_fiyat") urun_fiyat: String,
+                      @Field("urun_aciklama") urun_aciklama:String,
+                      @Field("urun_gorsel_url") urun_gorsel_url:String):Call<CRUDResponse>
 
     @POST("indirimli_urun_durum_degistir.php")
     @FormUrlEncoded
     fun updateDiscount(@Field("id")id:Int,
-                       @Field("urun_indirimli_mi")urun_indirimli_mi:Boolean):Call<CRUDResponse>
+                       @Field("urun_indirimli_mi")urun_indirimli_mi:Int):Call<CRUDResponse>
 
     @POST("sepet_durum_degistir.php")
     @FormUrlEncoded
     fun updateCart(@Field("id")id:Int,
-                   @Field("sepet_durum")sepet_durum:Boolean):Call<CRUDResponse>
+                   @Field("sepet_durum")sepet_durum:Int):Call<CRUDResponse>
 }

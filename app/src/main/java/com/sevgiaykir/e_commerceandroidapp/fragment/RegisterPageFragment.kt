@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.sevgiaykir.e_commerceandroidapp.R
@@ -35,5 +37,6 @@ class RegisterPageFragment : Fragment() {
 
     fun buttonRegister(name_surname:String, email:String, phoneNo:String, password:String){
         viewModel.register(name_surname,email,phoneNo,password)
+        Toast.makeText(requireContext(),"Kayıt Olundu!", Toast.LENGTH_SHORT).show()
     }
 }

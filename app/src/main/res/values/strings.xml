@@ -12,4 +12,9 @@
     <string name="welcome">Hoşgeldiniz</string>
     <string name="loginAccount">Hesabınıza Giriş Yapın</string>
     <string name="register2">Yeni Kayıt</string>
+    <string name="account">Hesap</string>
+    <string name="campaign">Kampanyalar</string>
+    <string name="cart">Sepet</string>
+    <string name="homepage">Anasayfa</string>
+    <string name="goCart">Sepet sayfasına git</string>
 </resources>

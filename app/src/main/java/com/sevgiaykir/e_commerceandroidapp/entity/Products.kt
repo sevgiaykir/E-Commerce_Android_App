@@ -15,7 +15,7 @@ data class Products(@SerializedName("id")
                     var urun_adi:String,
                     @SerializedName("urun_fiyat")
                     @Expose
-                    var urun_fiyat:Double,
+                    var urun_fiyat:String,
                     @SerializedName("urun_aciklama")
                     @Expose
                     var urun_aciklama:String,
@@ -24,8 +24,8 @@ data class Products(@SerializedName("id")
                     var urun_gorsel_url:String,
                     @SerializedName("sepet_durum")
                     @Expose
-                    var sepet_durum:Boolean,
+                    var sepet_durum:Int,
                     @SerializedName("urun_indirimli_mi")
                     @Expose
-                    var urun_indirimli_mi:Boolean):Serializable {
+                    var urun_indirimli_mi:Int):Serializable {
 }

@@ -10,6 +10,5 @@ class RegisterPageViewModel: ViewModel()  {
 
     fun register(name_surname:String, email:String, phoneNo:String, password:String){
         udaor.insertUser(name_surname,email,phoneNo,password)
-        Log.e("işstee","kaydoldunuz")
     }
 }

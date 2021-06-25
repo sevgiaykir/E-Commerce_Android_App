@@ -15,8 +15,8 @@ interface UsersDAOInterface {
 
     @POST("uye_ol.php")
     @FormUrlEncoded
-    fun signUp(@Field("mail_adres")mail_adres:String,
-                      @Field("sifre")sifre:String,
-                      @Field("ad_soyad")ad_soyad:String,
-                      @Field("telefon")telefon:String):Call<CRUDResponse>
+    fun signUp(@Field("ad_soyad")ad_soyad:String,
+               @Field("mail_adres")mail_adres:String,
+               @Field("telefon")telefon:String,
+               @Field("sifre")sifre:String):Call<CRUDResponse>
 }

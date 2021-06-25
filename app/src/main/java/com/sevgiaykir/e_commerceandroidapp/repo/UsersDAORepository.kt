@@ -1,6 +1,5 @@
 package com.sevgiaykir.e_commerceandroidapp.repo
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.sevgiaykir.e_commerceandroidapp.entity.CRUDResponse
 import com.sevgiaykir.e_commerceandroidapp.entity.Users
@@ -15,20 +14,20 @@ class UsersDAORepository {
     private val usersList:MutableLiveData<List<Users>>
     private val udaoi:UsersDAOInterface
 
-    private var gelenDeger=MutableLiveData<Int>()
+    private var comingValue=MutableLiveData<Int>()
 
     init{
         udaoi=ApiUtils.getUsersDaoInterface()
         usersList= MutableLiveData()
-        gelenDeger=MutableLiveData()
+        comingValue=MutableLiveData()
     }
 
     fun bringUsers():MutableLiveData<List<Users>> {
         return usersList
     }
 
-    fun degerGetir():MutableLiveData<Int> {
-        return gelenDeger
+    fun bringValue():MutableLiveData<Int> {
+        return comingValue
     }
 
     fun insertUser(name_surname:String, email:String, phoneNo:String, password:String){
@@ -50,7 +49,7 @@ class UsersDAORepository {
 
 
                 for (p in list) {
-                    gelenDeger.value=p.deger
+                    comingValue.value=p.deger
                     //println(p.deger)
                     /*
                     if (p.deger == 1) {
