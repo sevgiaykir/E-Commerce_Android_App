@@ -84,9 +84,10 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phoneEditText"
-                    android:text=""
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:text="" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -113,10 +114,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:id="@+id/buttonRegister"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:text="@string/register"
                 android:onClick="@{() -> registerPageFragment.buttonRegister(namesurnameEditText.getText().toString(),emailEditText.getText().toString(),phoneEditText.getText().toString(),passwordEditText.getText().toString())}"
+                android:text="@string/register"
                 app:cornerRadius="16dp" />
 
             <RelativeLayout

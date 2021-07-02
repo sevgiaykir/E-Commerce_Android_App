@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.sevgiaykir.e_commerceandroidapp.R
 import com.sevgiaykir.e_commerceandroidapp.adapter.ProductAdapter
 import com.sevgiaykir.e_commerceandroidapp.databinding.FragmentHomePageBinding
@@ -34,6 +36,8 @@ class HomePageFragment : Fragment() {
             when (menuItem.itemId) {
                 R.id.action_go_cart -> {
                     Toast.makeText(requireContext(),"Basıldı!", Toast.LENGTH_SHORT).show()
+                    val pass=HomePageFragmentDirections.transitionHomePageToCartPage()
+                    findNavController().navigate(pass)
                     true
                 }
                 else -> false
@@ -58,6 +62,7 @@ class HomePageFragment : Fragment() {
         inflater.inflate(R.menu.toolbar_cart_icon,menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
+
     //sayfaya her geri dönüldüğünde yenilenmesi için
 /*
     override fun onResume() {

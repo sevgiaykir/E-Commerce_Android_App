@@ -16,17 +16,28 @@ class ProductsDAORepository {
     private val productList:MutableLiveData<List<Products>>
     private val pdaoi: ProductsDAOInterface
 
+    private var cartValidate=MutableLiveData<Int>()
+    private val cartProductList:MutableLiveData<List<Products>>
+
+    private var discountSituation=MutableLiveData<Int>()
+    private val disProductList:MutableLiveData<List<Products>>
+
     init{
         pdaoi=ApiUtils.getProductsDaoInterface()
         productList= MutableLiveData()
+        disProductList= MutableLiveData()
+        discountSituation=MutableLiveData()
+        cartProductList= MutableLiveData()
+        cartValidate= MutableLiveData()
     }
+
 
     fun bringProducts():MutableLiveData<List<Products>> {
         return productList
     }
 
-    fun searchProd(satici_adi:String){
-        pdaoi.searchProduct(satici_adi).enqueue(object : Callback<ProductsResponse> {
+    fun searchProd(){
+        pdaoi.searchProduct("sevgiaykir").enqueue(object : Callback<ProductsResponse> {
             override fun onResponse(
                 call: Call<ProductsResponse>?,
                 response: Response<ProductsResponse>
@@ -36,14 +47,11 @@ class ProductsDAORepository {
 
                 for(p in list){
                     Log.e("*****","******")
-                    Log.e("info", p.id.toString())
+                    Log.e("id", p.id.toString())
                     //Log.e("info1", p.satici_adi)
-                    Log.e("info2", p.urun_adi)
-                    Log.e("info3", p.urun_fiyat.toString())
-                    Log.e("info4", p.urun_aciklama)
-                    Log.e("info5", p.urun_gorsel_url)
-                    Log.e("info6", p.sepet_durum.toString())
-                    Log.e("info7", p.urun_indirimli_mi.toString())
+                    Log.e("ad", p.urun_adi)
+                    Log.e("sepet", p.sepet_durum.toString())
+                    Log.e("indirim", p.urun_indirimli_mi.toString())
 
                 }
             }
@@ -55,7 +63,7 @@ class ProductsDAORepository {
     }
 
     //ürün eklemek için
-
+/*
     fun insertProd(satici_adi:String,urun_adi:String,urun_fiyat:String,urun_aciklama:String,urun_gorsel_url:String){
         pdaoi.insertProduct(satici_adi,urun_adi,urun_fiyat,urun_aciklama,urun_gorsel_url).enqueue(object:
             Callback<CRUDResponse> {
@@ -66,16 +74,55 @@ class ProductsDAORepository {
                 TODO("Not yet implemented")
             }
         })
+    } */
+
+    fun bringCartProd():MutableLiveData<List<Products>> {
+        return cartProductList
     }
+
     fun updateCartSituation(id:Int,sepet_durum:Int) {
         pdaoi.updateCart(id,sepet_durum).enqueue(object: Callback<CRUDResponse> {
             override fun onResponse(call: Call<CRUDResponse>?, response: Response<CRUDResponse>) {
+                cartValidate.value=response.body().success
                 Log.e("Güncelleme Başarılı", response.body().success.toString())
                 Log.e("Güncelleme Başarısız", response.body().message)
             }
 
             override fun onFailure(call: Call<CRUDResponse>?, t: Throwable?) {}
         })
+    }
+
+    fun searchCartProd(){
+        pdaoi.searchProduct("sevgiaykir").enqueue(object : Callback<ProductsResponse> {
+            override fun onResponse(
+                call: Call<ProductsResponse>?,
+                response: Response<ProductsResponse>
+            ) {
+                val list=response.body().urunler
+                var arrayListCartProd= arrayListOf<Products>()
+
+                for(p in list){
+                    if(p.sepet_durum==1) {
+                        arrayListCartProd.add(p)
+                        Log.e("*****", "******")
+                        Log.e("id", p.id.toString())
+                        //Log.e("info1", p.satici_adi)
+                        Log.e("ad", p.urun_adi)
+                        Log.e("sepet", p.sepet_durum.toString())
+                        Log.e("indirim", p.urun_indirimli_mi.toString())
+                    }
+                }
+                cartProductList.value=arrayListCartProd
+            }
+
+            override fun onFailure(call: Call<ProductsResponse>?, t: Throwable?) {
+                TODO("Not yet implemented")
+            }
+        })
+    }
+
+    fun bringDisProd():MutableLiveData<List<Products>> {
+        return disProductList
     }
 
     fun updateDiscountSituation(id:Int,urun_indirimli_mi:Int) {
@@ -88,6 +135,38 @@ class ProductsDAORepository {
             override fun onFailure(call: Call<CRUDResponse>?, t: Throwable?) {}
         })
     }
+
+    fun searchDisProd(){
+        pdaoi.searchProduct("sevgiaykir").enqueue(object : Callback<ProductsResponse> {
+            override fun onResponse(
+                call: Call<ProductsResponse>?,
+                response: Response<ProductsResponse>
+            ) {
+                val list=response.body().urunler
+                var arrayListDisProd= arrayListOf<Products>()
+
+                for(p in list){
+                    if(p.urun_indirimli_mi==1)
+                    {
+                        arrayListDisProd.add(p)
+                        Log.e("*****","******")
+                        Log.e("id", p.id.toString())
+                        //Log.e("info1", p.satici_adi)
+                        Log.e("ad", p.urun_adi)
+                        Log.e("sepet", p.sepet_durum.toString())
+                        Log.e("indirim", p.urun_indirimli_mi.toString())
+                    }
+                }
+                disProductList.value=arrayListDisProd
+            }
+
+            override fun onFailure(call: Call<ProductsResponse>?, t: Throwable?) {
+                TODO("Not yet implemented")
+            }
+        })
+    }
+
+
 
 
 }

@@ -1,5 +1,6 @@
 package com.sevgiaykir.e_commerceandroidapp.fragment
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,7 +24,21 @@ class AccountPageFragment : Fragment() {
         design= DataBindingUtil.inflate(inflater, R.layout.fragment_account_page, container, false)
         design.accountPageFragment=this
 
+        loadData()
 
         return design.root
     }
+
+    fun loadData(){
+        val sharedPreferences= context?.getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        val savedName= sharedPreferences?.getString("STRING_NAME",null)
+        val savedMail= sharedPreferences?.getString("STRING_MAIL",null)
+        val savedPhone= sharedPreferences?.getString("STRING_PHONE",null)
+
+        design.textView.text=savedName
+        design.textView2.text=savedMail
+        design.textView3.text=savedPhone
+
+    }
+
 }

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/transitionHomePageToProductDetails"
             app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/transitionHomePageToCartPage"
+            app:destination="@id/cartPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/cartPageFragment"
@@ -23,7 +26,11 @@
         android:id="@+id/campaignPageFragment"
         android:name="com.sevgiaykir.e_commerceandroidapp.fragment.CampaignPageFragment"
         android:label="fragment_campaign_page"
-        tools:layout="@layout/fragment_campaign_page" />
+        tools:layout="@layout/fragment_campaign_page" >
+        <action
+            android:id="@+id/transitionCampaignPageToProductDetails"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/accountPageFragment"
         android:name="com.sevgiaykir.e_commerceandroidapp.fragment.AccountPageFragment"

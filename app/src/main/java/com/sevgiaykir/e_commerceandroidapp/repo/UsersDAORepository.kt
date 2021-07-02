@@ -1,6 +1,9 @@
 package com.sevgiaykir.e_commerceandroidapp.repo
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.lifecycle.MutableLiveData
+import com.sevgiaykir.e_commerceandroidapp.LoginRegisterActivity
 import com.sevgiaykir.e_commerceandroidapp.entity.CRUDResponse
 import com.sevgiaykir.e_commerceandroidapp.entity.Users
 import com.sevgiaykir.e_commerceandroidapp.entity.UsersResponse
@@ -11,15 +14,21 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class UsersDAORepository {
+
     private val usersList:MutableLiveData<List<Users>>
     private val udaoi:UsersDAOInterface
 
     private var comingValue=MutableLiveData<Int>()
 
+    private val activity: LoginRegisterActivity? = null
+    private var comingUser:MutableLiveData<List<Users>>
+
     init{
         udaoi=ApiUtils.getUsersDaoInterface()
         usersList= MutableLiveData()
+        comingUser= MutableLiveData()
         comingValue=MutableLiveData()
+
     }
 
     fun bringUsers():MutableLiveData<List<Users>> {
@@ -29,6 +38,10 @@ class UsersDAORepository {
     fun bringValue():MutableLiveData<Int> {
         return comingValue
     }
+    fun bringUserInfo():MutableLiveData<List<Users>> {
+        return comingUser
+    }
+
 
     fun insertUser(name_surname:String, email:String, phoneNo:String, password:String){
         udaoi.signUp(name_surname,email,phoneNo,password).enqueue(object: Callback<CRUDResponse> {
@@ -45,15 +58,15 @@ class UsersDAORepository {
         udaoi.login(email,password).enqueue(object : Callback<UsersResponse> {
             override fun onResponse(call: Call<UsersResponse>?, response: Response<UsersResponse>) {
                 val list = response.body().kullanicilar
-                usersList.value=list
+                usersList.value = list
+                var arrayListUserInfos = arrayListOf<Users>()
 
-
-                for (p in list) {
-                    comingValue.value=p.deger
+                for (u in list) {
+                    comingValue.value = u.deger
                     //println(p.deger)
-                    /*
-                    if (p.deger == 1) {
-
+                    if (u.deger == 1) {
+                        arrayListUserInfos.add(u)
+                        /*
                         Log.e("*****", "******")
                         Log.e("1", p.ad_soyad)
                         Log.e("2", p.mail_adres)
@@ -63,7 +76,9 @@ class UsersDAORepository {
                     } else if (p.deger == 0) {
                         Log.e("giriş", "yapılamadı")
                     }  */
+                    }
                 }
+                comingUser.value=arrayListUserInfos
             }
             //sevgiaykir@gmail.com
             //sevgi999
@@ -73,5 +88,13 @@ class UsersDAORepository {
             }
         })
     }
+
+    fun saveData() {
+        val sharedPref : SharedPreferences?= activity?.getPreferences(Context.MODE_PRIVATE);
+        //val editor=sharedPref.edit()
+
+    }
+
+
 
 }

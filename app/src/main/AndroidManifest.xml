@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ECommerceAndroidApp"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AfterLoginActivity"></activity>
+        <activity android:name=".deneme"></activity>
+        <activity android:name=".AfterLoginActivity" />
         <activity android:name=".LoginRegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

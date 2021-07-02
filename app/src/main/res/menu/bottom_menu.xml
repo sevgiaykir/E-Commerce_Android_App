@@ -4,17 +4,21 @@
     <item
         android:id="@+id/homePageFragment"
         android:icon="@drawable/round_home"
+        android:enabled="true"
         android:title="Anasayfa" />
     <item
         android:id="@+id/cartPageFragment"
         android:icon="@drawable/round_shopping_bag"
+        android:enabled="true"
         android:title="Sepet" />
     <item
         android:id="@+id/campaignPageFragment"
         android:icon="@drawable/round_notifications"
+        android:enabled="true"
         android:title="Kampanyalar" />
     <item
         android:id="@+id/accountPageFragment"
         android:icon="@drawable/account"
+        android:enabled="true"
         android:title="Hesabım" />
 </menu>

@@ -56,6 +56,16 @@ class ProductDetailsPageFragment : Fragment() {
 
     fun buttonUpdateCart(id:Int, sepet_durum:Int) {
         viewModel.updateCart(id,sepet_durum)
+        Toast.makeText(requireContext(), "Ürün sepete eklendi.", Toast.LENGTH_SHORT).show()
+        /*
+        viewModel.success.observe(viewLifecycleOwner, {
+            if(it==1) {
+                Toast.makeText(requireContext(), "Ürün sepete eklendi.", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                Toast.makeText(requireContext(), "Bir Hata Oluştu.", Toast.LENGTH_SHORT).show()
+            }
+        }) */
     }
 
 }

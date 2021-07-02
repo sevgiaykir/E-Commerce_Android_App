@@ -17,13 +17,12 @@ class HomePageViewModel: ViewModel() {
     }
 
     fun loadProduct() {
-        pdaor.searchProd("cerentunay")
-        /*
-        val list=ArrayList<Products>()
-        list.add(Products(1,"sevgi","ürün adıı","fiyat","açıklama","",0,0))
-        list.add(Products(1,"sevgi","ürün adı2","fiyat2","açıklama","",0,0))
+        pdaor.searchProd()
+    }
 
-        prodList.value=list */
+
+    fun updateCart(id:Int, sepet_durum:Int) {
+        pdaor.updateCartSituation(1,2)
     }
 
     fun getInfo(id:Int){

@@ -34,12 +34,33 @@ class LoginRegisterActivity : AppCompatActivity() {
         pdaoi=ApiUtils.getProductsDaoInterface()
         udaoi=ApiUtils.getUsersDaoInterface()
 
-        //updateCartSituation()
-        //updateDiscountSituation()
         //insertProd()
-        //searchProd()
+        //updateDiscountSituation()
+    }
+/*
+    fun insertProd(){
+        pdaoi.insertProduct("sevgiaykir"," "," ",
+            " ",
+            " ").enqueue(object:
+            Callback<CRUDResponse> {
+            override fun onResponse(call: Call<CRUDResponse>?, response: Response<CRUDResponse>) {
+            }
 
+            override fun onFailure(call: Call<CRUDResponse>?, t: Throwable?) {
+                TODO("Not yet implemented")
+            }
+        })
+    } */
+//221(kotlin),222(Android, 228(Google)
+    fun updateDiscountSituation() {
+        pdaoi.updateDiscount(228,1).enqueue(object: Callback<CRUDResponse> {
+            override fun onResponse(call: Call<CRUDResponse>?, response: Response<CRUDResponse>) {
+                Log.e("Güncelleme Başarılı", response.body().success.toString())
+                Log.e("Güncelleme Başarısız", response.body().message)
+            }
 
+            override fun onFailure(call: Call<CRUDResponse>?, t: Throwable?) {}
+        })
     }
 
 }

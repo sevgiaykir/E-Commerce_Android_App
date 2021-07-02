@@ -41,13 +41,15 @@ class ProductAdapter(var mContext:Context, var productList:List<Products>):Recyc
             Navigation.findNavController(it).navigate(pass)
         }
 
-        holder.design.imageViewIconInfo.setOnClickListener {
-            Snackbar.make(it,"Info iconuna basıldı", Snackbar.LENGTH_LONG).show()
+        holder.design.buttonGoDetail.setOnClickListener {
+            val pass=HomePageFragmentDirections.transitionHomePageToProductDetails(product)
+            Navigation.findNavController(it).navigate(pass)
         }
 
-        holder.design.imageViewIconCart.setOnClickListener {
-            Snackbar.make(it,"Cart iconuna basıldı", Snackbar.LENGTH_LONG).show()
+        holder.design.buttonGoCart.setOnClickListener {
+            Toast.makeText(mContext, "Sepete eklendi!", Toast.LENGTH_SHORT).show()
         }
+
     }
 
     override fun getItemCount(): Int {
