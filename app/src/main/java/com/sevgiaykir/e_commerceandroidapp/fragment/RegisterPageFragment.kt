@@ -39,7 +39,6 @@ class RegisterPageFragment : Fragment() {
         val passwordInput=design.passwordEditText
         val nameSurnameInput=design.namesurnameEditText
         val phoneInput=design.phoneEditText
-        design.buttonRegister.isEnabled=false
 
         //name-surname validation
         nameSurnameInput.addTextChangedListener(object: TextWatcher {
@@ -101,9 +100,9 @@ class RegisterPageFragment : Fragment() {
         phoneTextInputLayout.setError(validatePhone(password))
         passwordTextInputLayout.setError(validatePassword(password))
         viewModel.register(name_surname,email,phoneNo,password)
-        val intent = Intent(getActivity(), AfterLoginActivity::class.java)
-        getActivity()?.startActivity(intent)
-        Toast.makeText(requireContext(),"Kayıt Olundu!", Toast.LENGTH_SHORT).show()
+        //val intent = Intent(getActivity(), AfterLoginActivity::class.java)
+        //getActivity()?.startActivity(intent)
+        Toast.makeText(requireContext(),"Kayıt Olundu, bilgilerinizle hesabınıza giriş yapabilirsiniz!", Toast.LENGTH_SHORT).show()
     }
 
     fun validateNameSurname(nameSurnameInput: String):String? {

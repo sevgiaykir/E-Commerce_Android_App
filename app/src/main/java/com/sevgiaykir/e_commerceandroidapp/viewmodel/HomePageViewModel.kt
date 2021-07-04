@@ -21,8 +21,8 @@ class HomePageViewModel: ViewModel() {
     }
 
 
-    fun updateCart(id:Int, sepet_durum:Int) {
-        pdaor.updateCartSituation(1,2)
+    fun updateCart(id:Int, cartSit:Int) {
+        pdaor.updateCartSituation(id, cartSit)
     }
 
     fun getInfo(id:Int){

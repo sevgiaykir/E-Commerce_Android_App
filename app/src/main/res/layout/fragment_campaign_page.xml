@@ -8,7 +8,8 @@
         <variable name="adapter" type="com.sevgiaykir.e_commerceandroidapp.adapter.CampaignAdapter" />
     </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.CampaignPageFragment">
 
@@ -28,8 +29,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/merriweather"
             android:text="@string/campaign"
-            android:textSize="20sp" />
+            android:textColor="@color/white"
+            android:textSize="@dimen/toolBoxTextSize"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="14dp" />
 
     </androidx.appcompat.widget.Toolbar>
 

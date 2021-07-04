@@ -13,6 +13,7 @@ import com.sevgiaykir.e_commerceandroidapp.R
 import com.sevgiaykir.e_commerceandroidapp.adapter.ProductAdapter
 import com.sevgiaykir.e_commerceandroidapp.databinding.FragmentHomePageBinding
 import com.sevgiaykir.e_commerceandroidapp.viewmodel.HomePageViewModel
+import com.sevgiaykir.e_commerceandroidapp.viewmodel.ProductDetailsPageViewModel
 
 class HomePageFragment : Fragment() {
 
@@ -35,7 +36,6 @@ class HomePageFragment : Fragment() {
             menuItem ->
             when (menuItem.itemId) {
                 R.id.action_go_cart -> {
-                    Toast.makeText(requireContext(),"Basıldı!", Toast.LENGTH_SHORT).show()
                     val pass=HomePageFragmentDirections.transitionHomePageToCartPage()
                     findNavController().navigate(pass)
                     true
@@ -45,7 +45,7 @@ class HomePageFragment : Fragment() {
         }
 
         viewModel.prodList.observe(viewLifecycleOwner,{ productList ->
-            adapter= ProductAdapter(requireContext(),productList)
+            adapter= ProductAdapter(requireContext(),productList, viewModel)
             design.adapter=adapter
         })
         return design.root
@@ -62,11 +62,4 @@ class HomePageFragment : Fragment() {
         inflater.inflate(R.menu.toolbar_cart_icon,menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
-
-    //sayfaya her geri dönüldüğünde yenilenmesi için
-/*
-    override fun onResume() {
-        super.onResume()
-        viewModel.loadProduct()
-    } */
 }

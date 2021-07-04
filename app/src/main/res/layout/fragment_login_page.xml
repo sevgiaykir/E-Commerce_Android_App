@@ -17,8 +17,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="350dp"
-            android:layout_height="350dp"
-            android:layout_marginTop="32dp"
+            android:layout_height="300dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,34 +80,6 @@
                     android:layout_height="56dp"
                     android:onClick="@{() -> loginPageFragment.buttonLogin(emailEditText.getText().toString(),passwordEditText.getText().toString())}"
                     android:text="@string/login"
-                    app:cornerRadius="16dp" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_margin="12dp"
-                        android:background="?android:attr/listDivider" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:background="@android:color/white"
-                        android:padding="2dp"
-                        android:text="@string/or" />
-                </RelativeLayout>
-
-                <Button
-                    android:id="@+id/buttonRegisterTransition"
-                    android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:text="@string/register"
-
-                    app:backgroundTint="@color/grey"
                     app:cornerRadius="16dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

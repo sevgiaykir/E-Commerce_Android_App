@@ -36,7 +36,6 @@ class LoginPageFragment : Fragment() {
 
         val emailInput=design.emailEditText
         val passwordInput=design.passwordEditText
-        //design.buttonLogin.isEnabled=false
 
         //e-mail validation
         emailInput.addTextChangedListener(object:TextWatcher{
@@ -116,18 +115,13 @@ class LoginPageFragment : Fragment() {
                                 putString("STRING_PHONE",i.telefon)
                             }
                         }?.apply()
-                        Toast.makeText(requireContext(),"data saved",Toast.LENGTH_LONG).show()
+                        //Toast.makeText(requireContext(),"data saved",Toast.LENGTH_SHORT).show()
 
                     })
                 } else if (it == 0) {
-                    Snackbar.make(requireActivity().findViewById(android.R.id.content),
-                        "Mail adresiniz veya şifreniz hatalı!", Snackbar.LENGTH_LONG).show()
-                    //Toast.makeText(requireContext(), "Giriş Yapılamadı!", Toast.LENGTH_SHORT).show()
+                    //Snackbar.make(requireActivity().findViewById(android.R.id.content), "Mail adresiniz veya şifreniz hatalı!", Snackbar.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), "Giriş Yapılamadı!", Toast.LENGTH_SHORT).show()
                 }
             })
-            //sayfa geçişi
-
-
-            //Navigation.findNavController(view).navigate(R.id.transitionHomePageFragment)
         }
     }

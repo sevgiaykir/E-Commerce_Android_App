@@ -29,8 +29,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/merriweather"
             android:text="@string/cart"
-            android:textSize="20sp"/>
+            android:textColor="@color/white"
+            android:textSize="@dimen/toolBoxTextSize"
+            tools:layout_editor_absoluteX="180dp"
+            tools:layout_editor_absoluteY="14dp" />
 
     </androidx.appcompat.widget.Toolbar>
 

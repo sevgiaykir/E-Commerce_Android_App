@@ -66,16 +66,6 @@ class UsersDAORepository {
                     //println(p.deger)
                     if (u.deger == 1) {
                         arrayListUserInfos.add(u)
-                        /*
-                        Log.e("*****", "******")
-                        Log.e("1", p.ad_soyad)
-                        Log.e("2", p.mail_adres)
-                        Log.e("3", p.sifre)
-                        Log.e("4", p.telefon)
-                        Log.e("5", p.deger.toString())
-                    } else if (p.deger == 0) {
-                        Log.e("giriş", "yapılamadı")
-                    }  */
                     }
                 }
                 comingUser.value=arrayListUserInfos
@@ -92,7 +82,6 @@ class UsersDAORepository {
     fun saveData() {
         val sharedPref : SharedPreferences?= activity?.getPreferences(Context.MODE_PRIVATE);
         //val editor=sharedPref.edit()
-
     }
 
 

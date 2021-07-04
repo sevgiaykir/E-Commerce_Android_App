@@ -13,8 +13,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
-        android:layout_height="500dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="450dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,9 +41,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/namesurnameEditText"
-                    android:text=""
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -63,9 +62,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailEditText"
-                    android:text=""
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -107,10 +106,10 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordEditText"
-                    android:text=""
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:text="" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
@@ -119,33 +118,9 @@
                 android:layout_height="56dp"
                 android:onClick="@{() -> registerPageFragment.buttonRegister(namesurnameEditText.getText().toString(),emailEditText.getText().toString(),phoneEditText.getText().toString(),passwordEditText.getText().toString())}"
                 android:text="@string/register"
+                android:textAllCaps="false"
                 app:cornerRadius="16dp" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_margin="12dp"
-                    android:background="?android:attr/listDivider" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:background="@android:color/white"
-                    android:padding="2dp"
-                    android:text="@string/or" />
-            </RelativeLayout>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="@string/login"
-                app:backgroundTint="@color/grey"
-                app:cornerRadius="16dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

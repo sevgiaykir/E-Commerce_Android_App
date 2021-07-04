@@ -20,5 +20,5 @@
         android:id="@+id/accountPageFragment"
         android:icon="@drawable/account"
         android:enabled="true"
-        android:title="Hesabım" />
+        android:title="Hesap" />
 </menu>

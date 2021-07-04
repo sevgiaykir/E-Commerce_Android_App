@@ -35,9 +35,9 @@ class AccountPageFragment : Fragment() {
         val savedMail= sharedPreferences?.getString("STRING_MAIL",null)
         val savedPhone= sharedPreferences?.getString("STRING_PHONE",null)
 
-        design.textView.text=savedName
-        design.textView2.text=savedMail
-        design.textView3.text=savedPhone
+        design.textViewNameSurname.text=savedName
+        design.textViewEmail.text=savedMail
+        design.textViewPhone.text=savedPhone
 
     }
 

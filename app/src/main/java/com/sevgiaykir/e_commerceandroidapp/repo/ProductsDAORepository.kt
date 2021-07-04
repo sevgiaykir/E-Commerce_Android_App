@@ -44,16 +44,11 @@ class ProductsDAORepository {
             ) {
                 val list=response.body().urunler
                 productList.value=list
-
+                /*
                 for(p in list){
-                    Log.e("*****","******")
                     Log.e("id", p.id.toString())
-                    //Log.e("info1", p.satici_adi)
                     Log.e("ad", p.urun_adi)
-                    Log.e("sepet", p.sepet_durum.toString())
-                    Log.e("indirim", p.urun_indirimli_mi.toString())
-
-                }
+                }  */
             }
 
             override fun onFailure(call: Call<ProductsResponse>?, t: Throwable?) {
@@ -84,8 +79,10 @@ class ProductsDAORepository {
         pdaoi.updateCart(id,sepet_durum).enqueue(object: Callback<CRUDResponse> {
             override fun onResponse(call: Call<CRUDResponse>?, response: Response<CRUDResponse>) {
                 cartValidate.value=response.body().success
+                /*
                 Log.e("Güncelleme Başarılı", response.body().success.toString())
                 Log.e("Güncelleme Başarısız", response.body().message)
+               */
             }
 
             override fun onFailure(call: Call<CRUDResponse>?, t: Throwable?) {}
@@ -104,12 +101,6 @@ class ProductsDAORepository {
                 for(p in list){
                     if(p.sepet_durum==1) {
                         arrayListCartProd.add(p)
-                        Log.e("*****", "******")
-                        Log.e("id", p.id.toString())
-                        //Log.e("info1", p.satici_adi)
-                        Log.e("ad", p.urun_adi)
-                        Log.e("sepet", p.sepet_durum.toString())
-                        Log.e("indirim", p.urun_indirimli_mi.toString())
                     }
                 }
                 cartProductList.value=arrayListCartProd
@@ -128,8 +119,10 @@ class ProductsDAORepository {
     fun updateDiscountSituation(id:Int,urun_indirimli_mi:Int) {
         pdaoi.updateDiscount(id,urun_indirimli_mi).enqueue(object: Callback<CRUDResponse> {
             override fun onResponse(call: Call<CRUDResponse>?, response: Response<CRUDResponse>) {
+                /*
                 Log.e("Güncelleme Başarılı", response.body().success.toString())
                 Log.e("Güncelleme Başarısız", response.body().message)
+                */
             }
 
             override fun onFailure(call: Call<CRUDResponse>?, t: Throwable?) {}
@@ -149,12 +142,6 @@ class ProductsDAORepository {
                     if(p.urun_indirimli_mi==1)
                     {
                         arrayListDisProd.add(p)
-                        Log.e("*****","******")
-                        Log.e("id", p.id.toString())
-                        //Log.e("info1", p.satici_adi)
-                        Log.e("ad", p.urun_adi)
-                        Log.e("sepet", p.sepet_durum.toString())
-                        Log.e("indirim", p.urun_indirimli_mi.toString())
                     }
                 }
                 disProductList.value=arrayListDisProd

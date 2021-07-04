@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolBoxTextSize">20sp</dimen>
+    <dimen name="productNameTextSize">20sp</dimen>
+    <dimen name="productPriceTextSize">16sp</dimen>
+    <dimen name="generalTitleTextSize">20sp</dimen>
+    <dimen name="generalMiddleTextSize">16sp</dimen>
+</resources>

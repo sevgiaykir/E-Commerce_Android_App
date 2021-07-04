@@ -10,4 +10,16 @@
         <item name="android:minHeight">48dp</item>
     </style>
 
+    <style name="BottomNavigationView" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/primaryLightColor</item>
+        <item name="android:fontFamily">@font/merriweather</item>
+    </style>
+
+    <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:fontFamily">@font/merriweather</item>
+        <item name="android:textColor">@color/primaryColor</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>

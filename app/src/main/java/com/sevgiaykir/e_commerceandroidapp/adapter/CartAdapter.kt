@@ -8,10 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sevgiaykir.e_commerceandroidapp.databinding.CartCardDesignBinding
 import com.sevgiaykir.e_commerceandroidapp.databinding.ProductCardDesignBinding
 import com.sevgiaykir.e_commerceandroidapp.entity.Products
+import com.sevgiaykir.e_commerceandroidapp.fragment.CartPageFragment
 import com.sevgiaykir.e_commerceandroidapp.viewmodel.CartPageViewModel
 import com.squareup.picasso.Picasso
 
-class CartAdapter(var mContext: Context, var cartProductList:List<Products>,var viewModel:CartPageViewModel)
+class CartAdapter(var mContext: Context, var cartProductList:List<Products>,var viewModel:CartPageViewModel,var fragment: CartPageFragment)
     :RecyclerView.Adapter<CartAdapter.CardDesignHolder>()  {
 
     inner class CardDesignHolder(cartCardDesignBinding: CartCardDesignBinding): RecyclerView.ViewHolder(cartCardDesignBinding.root){

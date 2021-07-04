@@ -32,7 +32,7 @@ class CartPageFragment : Fragment() {
         design.cartPageFragment=this
 
         viewModel.cartProdList.observe(viewLifecycleOwner, { cartProductList ->
-            adapter=CartAdapter(requireContext(), cartProductList, viewModel)
+            adapter=CartAdapter(requireContext(), cartProductList, viewModel, CartPageFragment())
             design.adapter=adapter
         })
         return design.root
@@ -42,5 +42,10 @@ class CartPageFragment : Fragment() {
         super.onCreate(savedInstanceState)
         val temp:CartPageViewModel by viewModels()
         viewModel=temp
+    }
+
+    fun refresh() {
+        super.onResume()
+        viewModel.loadCartProduct()
     }
 }

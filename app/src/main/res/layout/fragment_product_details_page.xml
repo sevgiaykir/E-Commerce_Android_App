@@ -9,7 +9,7 @@
     </data>
 
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragment.ProductDetailsPageFragment">
@@ -27,12 +27,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/scrollView"
             app:navigationIcon="@drawable/arrow_back">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="20sp" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -62,8 +56,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="48dp"
+                        android:fontFamily="@font/oxygen"
                         android:text="@{productObject.urun_fiyat} + ' ' +'\u20BA'}"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/productPriceTextSize"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/imageViewProdDetail"
@@ -75,9 +70,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="40dp"
+                        android:fontFamily="@font/oxygen"
                         android:padding="20dp"
                         android:text="@{productObject.urun_aciklama}"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/generalMiddleTextSize"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
@@ -89,13 +85,15 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="32dp"
+                        android:fontFamily="@font/oxygen_bold"
                         android:gravity="center"
                         android:lines="3"
                         android:maxLines="3"
                         android:minLines="2"
                         android:singleLine="false"
                         android:text="@{productObject.urun_adi}"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/productNameTextSize"
+                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/imageViewProdDetail"
@@ -117,9 +115,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="48dp"
+                        style="@style/Widget.App.Button.OutlinedButton.IconOnly"
                         android:onClick="@{() -> detailPageFragment.buttonUpdateCart(productObject.id,1)}"
+                        android:textAllCaps="false"
                         android:text="Sepete Ekle"
                         android:textSize="12sp"
+                        app:icon="@drawable/add_shopping_cart"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/imageViewProdDetail"
@@ -131,6 +132,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="24dp"
+                        android:fontFamily="@font/oxygen_bold"
                         android:text="@string/PruductInfo"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -143,5 +145,5 @@
             </LinearLayout>
         </ScrollView>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

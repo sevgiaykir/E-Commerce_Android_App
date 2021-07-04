@@ -9,9 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#757575</color>
     <!-- Renkler -->
-    <color name="primaryColor">#c5a38b</color>
-    <color name="primaryLightColor">#f9d4bb</color>
-    <color name="primaryDarkColor">#604a39</color>
-    <color name="primaryTextColor">#000000</color>
-
+    <color name="darkPrimaryColor">#512000</color>
+    <color name="darkPrimaryLightColor">#81492a</color>
+    <color name="darkPrimaryDarkColor">#2e0000</color>
+    <color name="darkPrimaryTextColor">#ffffff</color>
 </resources>

@@ -11,9 +11,11 @@ import com.google.android.material.snackbar.Snackbar
 import com.sevgiaykir.e_commerceandroidapp.databinding.ProductCardDesignBinding
 import com.sevgiaykir.e_commerceandroidapp.entity.Products
 import com.sevgiaykir.e_commerceandroidapp.fragment.HomePageFragmentDirections
+import com.sevgiaykir.e_commerceandroidapp.viewmodel.HomePageViewModel
+import com.sevgiaykir.e_commerceandroidapp.viewmodel.ProductDetailsPageViewModel
 import com.squareup.picasso.Picasso
 
-class ProductAdapter(var mContext:Context, var productList:List<Products>):RecyclerView.Adapter<ProductAdapter.CardDesignHolder>() {
+class ProductAdapter(var mContext:Context, var productList:List<Products>, var viewModel:HomePageViewModel):RecyclerView.Adapter<ProductAdapter.CardDesignHolder>() {
 
     inner class CardDesignHolder(productCardDesignBinding: ProductCardDesignBinding):RecyclerView.ViewHolder(productCardDesignBinding.root){
         var design: ProductCardDesignBinding
@@ -47,6 +49,7 @@ class ProductAdapter(var mContext:Context, var productList:List<Products>):Recyc
         }
 
         holder.design.buttonGoCart.setOnClickListener {
+            viewModel.updateCart(product.id,1)
             Toast.makeText(mContext, "Sepete eklendi!", Toast.LENGTH_SHORT).show()
         }
 
