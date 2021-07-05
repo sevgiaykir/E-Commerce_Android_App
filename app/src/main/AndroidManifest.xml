@@ -22,7 +22,8 @@
         </activity>
 
         <activity android:name=".AfterLoginActivity" />
-        <activity android:name=".LoginRegisterActivity">
+        <activity android:name=".LoginRegisterActivity"
+            android:windowSoftInputMode="adjustResize">
 
         </activity>
 

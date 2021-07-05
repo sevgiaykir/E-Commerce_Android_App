@@ -27,6 +27,7 @@
         android:layout_gravity="bottom"
         android:background="@drawable/background_bottomnav"
         app:elevation="8dp"
+        app:itemTextColor="@color/primaryDarkColor"
         app:hideOnScroll="true"
         app:itemIconTint="@color/primaryDarkColor"
         app:labelVisibilityMode="labeled"

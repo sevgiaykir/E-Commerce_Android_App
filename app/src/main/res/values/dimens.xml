@@ -5,5 +5,5 @@
     <dimen name="productPriceTextSize">16sp</dimen>
     <dimen name="generalTitleTextSize">20sp</dimen>
     <dimen name="generalMiddleTextSize">16sp</dimen>
-    <dimen name="generalButtonTextSize">16sp</dimen>
+    <dimen name="generalButtonTextSize">14sp</dimen>
 </resources>

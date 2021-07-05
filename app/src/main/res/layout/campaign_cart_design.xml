@@ -38,6 +38,7 @@
                     android:id="@+id/textViewCampProdName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/oxygen_bold"
                     android:text="@{campaignProductObject.urun_adi}"
                     android:textSize="@dimen/productNameTextSize"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -51,6 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="108dp"
                     android:layout_marginTop="2dp"
+                    android:fontFamily="@font/oxygen"
                     android:text="@{campaignProductObject.urun_fiyat} + ' ' +'\u20BA'}"
                     android:textSize="20sp"
                     app:layout_constraintHorizontal_chainStyle="packed"
@@ -62,23 +64,39 @@
                     style="@style/Widget.App.Button.OutlinedButton.IconOnly"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/oxygen"
                     app:icon="@drawable/arrow_detail"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textViewCampProdPrice2"
+                    android:id="@+id/textViewCampProdPriceNew"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:layout_marginEnd="108dp"
-                    android:text="45.00 \u20BA"
+                    android:fontFamily="@font/oxygen"
 
+                    android:text="45.00 \u20BA"
                     android:textColor="@color/primaryDarkColor"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textViewCampProdName" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%10 İndirim"
+                    android:textColor="@color/white"
+                    app:chipBackgroundColor="@color/red"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonCampGoDetail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewCampProd"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.16000003" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>

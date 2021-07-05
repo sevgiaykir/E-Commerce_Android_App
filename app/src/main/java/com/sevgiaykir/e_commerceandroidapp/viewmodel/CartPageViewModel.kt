@@ -21,6 +21,7 @@ class CartPageViewModel:ViewModel() {
 
     fun removeCartProduct(id:Int,cartSituation:Int) {
         pdaor.updateCartSituation(id,cartSituation)
+        loadCartProduct()
     }
 
 }

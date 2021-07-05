@@ -30,7 +30,7 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     fun smokeAnim() {
-        val anim1=ObjectAnimator.ofFloat(imageViewSmoke,"translationY",0.0f,-120.0f)
+        val anim1=ObjectAnimator.ofFloat(imageViewSmoke,"translationY",0.0f,-150.0f)
         val anim2=ObjectAnimator.ofFloat(imageViewSmoke,"alpha",1.0f,0.0f)
 
         val anim=AnimatorSet().apply {

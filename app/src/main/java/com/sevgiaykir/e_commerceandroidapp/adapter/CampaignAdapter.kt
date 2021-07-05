@@ -18,7 +18,6 @@ import com.squareup.picasso.Picasso
 class CampaignAdapter(var mContext: Context, var campaignProductList:List<Products>)
 : RecyclerView.Adapter<CampaignAdapter.CardDesignHolder>() {
 
-
     inner class CardDesignHolder(campaignCartDesignBinding: CampaignCartDesignBinding) :
         RecyclerView.ViewHolder(campaignCartDesignBinding.root) {
         var design: CampaignCartDesignBinding
@@ -33,6 +32,8 @@ class CampaignAdapter(var mContext: Context, var campaignProductList:List<Produc
         val design= CampaignCartDesignBinding.inflate(layoutInflater,parent,false)
         return CardDesignHolder(design)
     }
+
+    private val salePrices = arrayListOf("62,90 ₺", "42,90 ₺", "44,90 ₺")
 
     override fun onBindViewHolder(holder: CardDesignHolder, position: Int) {
         val campaignProduct=campaignProductList.get(position)
@@ -52,6 +53,8 @@ class CampaignAdapter(var mContext: Context, var campaignProductList:List<Produc
         }
 
         holder.design.textViewCampProdPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+
+        holder.design.textViewCampProdPriceNew.text=salePrices[position]
         //   android:text="@{campaignProductObject.urun_fiyat} + ' ' +'\u20BA'}"
         //println(campaignProduct.urun_fiyat.toInt())
         //holder.design.textViewCampProdPrice2.text=(campaignProduct.urun_fiyat.toInt()-campaignProduct.urun_fiyat.toInt()/10).toString()

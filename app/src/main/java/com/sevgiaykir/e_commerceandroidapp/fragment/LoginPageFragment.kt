@@ -120,7 +120,7 @@ class LoginPageFragment : Fragment() {
                     })
                 } else if (it == 0) {
                     //Snackbar.make(requireActivity().findViewById(android.R.id.content), "Mail adresiniz veya şifreniz hatalı!", Snackbar.LENGTH_LONG).show()
-                    Toast.makeText(requireContext(), "Giriş Yapılamadı!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Mail adresiniz veya şifreniz hatalı!", Toast.LENGTH_SHORT).show()
                 }
             })
         }
