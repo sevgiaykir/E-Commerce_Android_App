@@ -13,14 +13,17 @@
         android:theme="@style/Theme.ECommerceAndroidApp"
         android:usesCleartextTraffic="true">
 
+        <activity android:name=".SplashScreenActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
 
         <activity android:name=".AfterLoginActivity" />
         <activity android:name=".LoginRegisterActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
